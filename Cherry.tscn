@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://bet1w3fl162r0"]
+
+[ext_resource type="Texture2D" uid="uid://m5mtvwno72qu" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/cherry/cherry-1.png" id="1_6j7gy"]
+[ext_resource type="Script" path="res://Cherry.gd" id="1_8kfsw"]
+[ext_resource type="Texture2D" uid="uid://dld462uwjam7o" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/cherry/cherry-2.png" id="2_wjjmu"]
+[ext_resource type="Texture2D" uid="uid://bw100b72q315a" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/cherry/cherry-3.png" id="3_lso56"]
+[ext_resource type="Texture2D" uid="uid://bfw2i6pkxiy6u" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/cherry/cherry-4.png" id="4_mlkuu"]
+[ext_resource type="Texture2D" uid="uid://b37157whrwttt" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/cherry/cherry-5.png" id="5_8cdei"]
+[ext_resource type="Texture2D" uid="uid://dxfhydahmnk2j" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/cherry/cherry-6.png" id="6_vlabt"]
+[ext_resource type="Texture2D" uid="uid://ddrc7e1472ilu" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/cherry/cherry-7.png" id="7_h4o7x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_igaqi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qkvu8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6j7gy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wjjmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lso56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mlkuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8cdei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vlabt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h4o7x")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Cherry" type="Area2D"]
+script = ExtResource("1_8kfsw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 0)
+scale = Vector2(0.76, 0.72)
+shape = SubResource("CircleShape2D_igaqi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qkvu8")
+animation = &"Idle"
+frame_progress = 0.662189
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
